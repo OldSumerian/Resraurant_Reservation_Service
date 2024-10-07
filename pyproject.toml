@@ -9,6 +9,11 @@ packages = [{include = "restaurant_reservation_service"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^5.1.1"
+psycopg2-binary = "^2.9.9"
+pillow = "^10.4.0"
+redis = "^5.1.1"
+requests = "^2.32.3"
+python-dotenv = "^1.0.1"
 
 
 [build-system]
