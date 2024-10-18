@@ -1,0 +1,97 @@
+{% extends 'reserv_service/base.html'%}
+{% load static %}
+{% block content %}
+<div class="container">
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">История ресторана 'ALWAYS WELCOME'". <span
+                    class="text-body-secondary">И не только...</span></h2>
+            <p class="lead">Ресторан 'ALWAYS WELCOME' в его сегодняшнем виде существует с 2021 года. Но его история
+                началась гораздо раньше.</p>
+            <p class="lead">В этом здании на протяжении многих лет располагались заведения, целью которых было вкусно и
+                качественно накормить своих посетителей.</p>
+            <p class="lead">Еще в 1896 году в этом доме был открыт ресторан братьев Карамазовых, которые с самого начала
+                позиционировали его как изысканное заведение для притязательных аристократов</p>
+            <p class="lead">В 1918 году, после революции, помещения ресторана использовались для питания военных,
+                расквартированнных в соседнем квартале</p>
+            <p class="lead">В 1925 году в период распространения НЭПа здесь открылся 2-е кооперативное кафе,
+                специализировавшееся на кондитерских изделиях</p>
+            <p class="lead">В 1936 году кафе было закрыто и до 1949 года помещения использовались детской молочной
+                станцией, предоставлявшей свою продукцию самым маленьким гражданам</p>
+            <p class="lead">В 1950 году в этом доме работала столовая для работников телевизионного завода, которую
+                также могли посетить и обычные жители города</p>
+            <p class="lead">В 1995 столовая была закрыта вместе с закрытием завода и дом пустовал до 2021 года, когда
+                после окончания пандемии мы решили возродить славную традицию этого здания вкусно кормить гостей</p>
+            <p class="lead">Мы всегда стараемся следить за тем, чтобы наш ресторан был красивым и удобным для
+                посетителей, а также был включен в семью.</p>
+
+
+        </div>
+        <div class="col-md-5">
+            <img src="{% static 'images/history.webp' %}"
+                 class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                 height="500" alt="photo">
+        </div>
+    </div>
+    <hr class="featurette-divider">
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Наша миссия. <span
+                    class="text-body-secondary">И наши ценности.</span></h2>
+            <p class="lead">Мы верим, что ориентация на максимальное удобство для клиентов приведет к синергии нашего
+                взаимодействия</p>
+            <p class="lead">Мы стремимся создать наиболее удобное и доступное для клиентов место, где они могут заказать
+                столик, заказать доставку готовых блюд, получить скидки и бонусы, и получить помощь в любом из наших
+                предложений.</p>
+            <p class="lead">Мы всегда стремимся делиться своими успехами и развиваться вместе с клиентами.</p>
+            <ul>Наши ценности
+                <li>Стабильность и удобство заказа</li>
+                <li>Качество наших блюд</li>
+                <li>Помощь в любом из ваших предложений</li>
+                <li>Развитие и улучшение нашего сервиса</li>
+                <li>Сотрудничество с клиентами</li>
+                <li>Индивидуальный подход к каждому клиенту</li>
+
+
+            </ul>
+        </div>
+        <div class="col-md-5">
+            <img src="{% static 'images/jewelry.jpg' %}"
+                 class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                 height="500" alt="photo">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Наша команда.<span class="text-body-secondary">Профессионалы для ценителей</span>
+            </h2>
+            <p class="lead">Мы ценим Ваше время и Ваши вкусы, поэтому в нашей команде собрались одни из лучших
+                профессионалов своего дела</p>
+            <ul>Наши профессионалы
+                <li>Менеджер по заказам</li>
+                <li>Бармен</li>
+                <li>Администратор</li>
+                <li>Повар</li>
+                <li>Официанты</li>
+                <li>Директор</li>
+
+            </ul>
+        </div>
+        <div class="col-md-5">
+            <img src="{% static 'images/team.jpg' %}"
+                 class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                 height="500" alt="photo">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+    <a class="btn btn-secondary" href="{% url 'reserv_service:index' %}">Вернуться на главную &raquo;</a>
+    <hr class="featurette-divider">
+
+</div>
+{% endblock%}
