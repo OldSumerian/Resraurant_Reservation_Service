@@ -1,0 +1,115 @@
+
+{% extends 'reserv_service/base.html'%}
+{% load static %}
+{% block content %}
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container marketing mt-5">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="{% static 'images/logo.jpg' %}" class="bd-placeholder-img rounded-circle border border-1"
+                 width="140" height="140" alt="photo">
+            <!--        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-color)"/></svg>-->
+            <h2 class="fw-normal">О нас</h2>
+            <p>Здесь Вы можете ознакомиться с историей нашего ресторана и узнать о нас интересные факты</p>
+            <p><a class="btn btn-secondary" href="#">Подробнее &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img src="{% static 'images/task.png' %}" class="bd-placeholder-img rounded-circle" width="140"
+                 height="140" alt="photo">
+            <!--        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-color)"/></svg>-->
+            <h2 class="fw-normal">Наши услуги</h2>
+            <p>Здесь Вы можете ознакомиться с перечнем наших услуг и выбрать интересующие вас</p>
+            <p><a class="btn btn-secondary" href="#">Подробнее &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img src="{% static 'images/phone.png' %}" class="bd-placeholder-img rounded-circle" width="140"
+                 height="140" alt="photo">
+            <!--        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-color)"/></svg>-->
+            <h2 class="fw-normal">Связаться с нами</h2>
+            <p>Здесь Вы можете найти контактную информацию и связаться с нами</p>
+            <p><a class="btn btn-secondary" href="#">Подробнее &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">История ресторана 'ALWAYS WELCOME'". <span
+                    class="text-body-secondary">И не только...</span></h2>
+            <p class="lead">Ресторан 'ALWAYS WELCOME' в его сегодняшнем виде существует с 2021 года. Но его история
+                началась гораздо раньше.</p>
+        </div>
+        <div class="col-md-5">
+            <img src="{% static 'images/history.webp' %}"
+                 class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                 height="500" alt="photo">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading fw-normal lh-1">Перечень услуг, предоставляемых рестораном <span
+                    class="text-body-secondary">Мы сделаем все возможное.</span></h2>
+            <p class="lead">Наш ресторан - не просто уютное место, где Вас вкусно накормят. У нас Вы можете:</p>
+            <ul>
+                <li>Заказать столик удобным Вам способом (лично, онлайн, по телефону и пр.)</li>
+                <li>Забронировать столик на удобное Вам время и дату</li>
+                <li>Получить скидки и бонусы для постоянных клиентов</li>
+                <li>Заказать доставку готовых блюд</li>
+                <li>Корпоративным клиентам оказываются услуги по организации питания сотрудников</li>
+            </ul>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img src="{% static 'images/reception.jpg' %}"
+                 class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                 height="500" alt="photo">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Вы можете оставить отзыв о нас прямо здесь. <span
+                    class="text-body-secondary">Ваше мнение важно для нас.</span></h2>
+            <p class="lead">Для обратной связи Вам потребуется заполнить небольшую форму</p>
+        </div>
+        <div class="col-md-5">
+            <img src="{% static 'images/contact_photo.jpg' %}"
+                 class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                 height="500" alt="photo">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette text-center">
+        <div class="col-md-12">
+            <h2 class="featurette-heading fw-normal lh-1">Наши контакты. <br> <span class="text-body-secondary">Вы можете связаться с нами следующими способами:</span>
+            </h2>
+            <p class="lead"></p>
+            <ul>
+                <li>Телефон: +7 (495) 123-45-67</li>
+                <li>Email: info@restaurant.ru</li>
+                <li>Адрес: ул. Пушкина, д. 123, стр. 2</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+    {% endblock%}
