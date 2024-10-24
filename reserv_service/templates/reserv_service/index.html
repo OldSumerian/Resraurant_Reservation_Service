@@ -3,6 +3,8 @@
 {% load static %}
 {% block content %}
 
+{% include 'reserv_service/includes/carusel.html'%}
+
 <!-- Marketing messaging and featurettes
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -17,7 +19,7 @@
             <!--        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-color)"/></svg>-->
             <h2 class="fw-normal">О нас</h2>
             <p>Здесь Вы можете ознакомиться с историей нашего ресторана и узнать о нас интересные факты</p>
-            <p><a class="btn btn-secondary" href="#">Подробнее &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="{% url 'reserv_service:about_us' %}">Подробнее &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
             <img src="{% static 'images/task.png' %}" class="bd-placeholder-img rounded-circle" width="140"
@@ -33,7 +35,7 @@
             <!--        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-color)"/></svg>-->
             <h2 class="fw-normal">Связаться с нами</h2>
             <p>Здесь Вы можете найти контактную информацию и связаться с нами</p>
-            <p><a class="btn btn-secondary" href="#">Подробнее &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="{% url 'reserv_service:contacts' %}">Подробнее &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
@@ -48,6 +50,7 @@
                     class="text-body-secondary">И не только...</span></h2>
             <p class="lead">Ресторан 'ALWAYS WELCOME' в его сегодняшнем виде существует с 2021 года. Но его история
                 началась гораздо раньше.</p>
+        <a class="btn btn-secondary" href="{% url 'reserv_service:about_us' %}">Узнать больше &raquo;</a>
         </div>
         <div class="col-md-5">
             <img src="{% static 'images/history.webp' %}"
@@ -70,6 +73,7 @@
                 <li>Заказать доставку готовых блюд</li>
                 <li>Корпоративным клиентам оказываются услуги по организации питания сотрудников</li>
             </ul>
+            <a class="btn btn-secondary" href="#">Узнать больше &raquo;</a>
         </div>
         <div class="col-md-5 order-md-1">
             <img src="{% static 'images/reception.jpg' %}"
@@ -85,6 +89,7 @@
             <h2 class="featurette-heading fw-normal lh-1">Вы можете оставить отзыв о нас прямо здесь. <span
                     class="text-body-secondary">Ваше мнение важно для нас.</span></h2>
             <p class="lead">Для обратной связи Вам потребуется заполнить небольшую форму</p>
+            <a class="btn btn-secondary" href="{% url 'reserv_service:feedback' %}">Заполнить форму &raquo;</a>
         </div>
         <div class="col-md-5">
             <img src="{% static 'images/contact_photo.jpg' %}"
@@ -111,5 +116,4 @@
     <hr class="featurette-divider">
 
     <!-- /END THE FEATURETTES -->
-
-    {% endblock%}
+{% endblock%}

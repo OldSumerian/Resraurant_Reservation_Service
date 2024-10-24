@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from reserv_service.models import Table, Order, TimeSection
+
+admin.site.register(Table)
+admin.site.register(Order)
+admin.site.register(TimeSection)
