@@ -1,7 +1,7 @@
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LogoutView, LoginView
 from django.urls import path
 from users.apps import UsersConfig
-from users.views import LoginView, RegisterView, ProfileView, confirm_user, ProfilePasswordRestoreView
+from users.views import RegisterView, ProfileView, confirm_user, ProfilePasswordRestoreView, my_cabinet
 
 app_name = UsersConfig.name
 
@@ -12,4 +12,5 @@ urlpatterns = [
     path("profile/", ProfileView.as_view(), name="profile"),
     path('confirm/<str:code>/', confirm_user, name="confirm"),
     path('restore_password/', ProfilePasswordRestoreView.as_view(), name="restore_password"),
+    path('my_cabinet/', my_cabinet, name='my_cabinet'),
 ]

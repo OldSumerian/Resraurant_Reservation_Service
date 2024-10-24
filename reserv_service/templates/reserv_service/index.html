@@ -35,7 +35,7 @@
             <!--        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-color)"/></svg>-->
             <h2 class="fw-normal">Связаться с нами</h2>
             <p>Здесь Вы можете найти контактную информацию и связаться с нами</p>
-            <p><a class="btn btn-secondary" href="#">Подробнее &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="{% url 'reserv_service:contacts' %}">Подробнее &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
@@ -89,7 +89,7 @@
             <h2 class="featurette-heading fw-normal lh-1">Вы можете оставить отзыв о нас прямо здесь. <span
                     class="text-body-secondary">Ваше мнение важно для нас.</span></h2>
             <p class="lead">Для обратной связи Вам потребуется заполнить небольшую форму</p>
-            <a class="btn btn-secondary" href="#">Заполнить форму &raquo;</a>
+            <a class="btn btn-secondary" href="{% url 'reserv_service:feedback' %}">Заполнить форму &raquo;</a>
         </div>
         <div class="col-md-5">
             <img src="{% static 'images/contact_photo.jpg' %}"

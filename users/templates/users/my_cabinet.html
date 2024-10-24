@@ -1,0 +1,101 @@
+{% extends 'reserv_service/base.html'%}
+{% load static %}
+{% block content %}
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">ЛИЧНЫЙ КАБИНЕТ</h1>
+            <p class="lead text-body-secondary">ресторан ALWAYS WELCOME</p>
+            <br>
+            <p>Здесь вы можете управлять своими заказами, изменять ваши контактные данные и изменять пароль.</p>
+
+            <hr class="featurette-divider">
+
+            <div>
+                {% if user.is_authenticated %}
+                <img src="{{ user.avatar }}" class="rounded-circle" alt="User Avatar" width="200" height="200">
+                <p>Пользователь: {{ user.email }}</p>
+                {% endif %}
+            </div>
+
+            <p>
+                {% if user.is_authenticated %}
+                <a href="{% url 'users:logout' %}" class="btn btn-secondary ms-2">Выход</a>
+                <a href="{% url 'users:profile' %}" class="btn btn-secondary ms-2">Редактировать профиль</a>
+                {% else %}
+                <a href="{% url 'users:login' %} " class="btn btn-secondary ms-2">Авторизация</a>
+
+                <a href="{% url 'users:registration' %}" class="btn btn-secondary ms-2">Регистрация</a>
+                {% endif %}
+            </p>
+
+            <hr class="featurette-divider">
+            <h2>История заказов</h2>
+            {% if user.is_authenticated %}
+            {% if objects %}
+
+            <div class="container">
+                <div class="row text-center">
+                    <div class="row text-center">
+                        {% if page_obj.paginator.num_pages == 1 and page_obj|length == 0 %}
+                        <h2 class="mb-4">Сейчас у Вас нет активных бронирований</h2>
+                        {% else %}
+                        <h2 class="mb-4">Список бронирований</h2>
+                        {% for obj in page_obj %}
+                        <div class="col-3">
+                            <div class="card mb-4 box-shadow d-flex align-items-stretch">
+                                <div class="card-header">
+                                    <h6 class="my-0 font-weight-italic">Заказчик: {{ obj.user }}</h6>
+                                </div>
+                                <div class="card-header">
+                                    <h4 class="my-0 font-weight-normal">Столик: {{ obj.table }}</h4>
+                                </div>
+                                <div class="card-header">
+                                    <h6 class="my-0 font-weight-normal">Время заказа: {{ obj.order_time }}</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="btn-group">
+                                        <a type="button" class="btn btn-outline-primary"
+                                           href="{% url 'reserv_service:reservation_detail' obj.pk %}">Сведения о
+                                            бронировании</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+
+                        {% if page_obj.paginator.num_pages > 1 %}
+                        <div id="pages" align="center">
+                            {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                            {% endif %}
+
+                            <span class="current">
+                Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+            </span>
+
+                            {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <p>У вас нет заказов.</p>
+            {% endif %}
+            {% endif %}
+
+            <hr class="featurette-divider">
+
+        </div>
+
+    </div>
+    <a class="btn btn-secondary" href="{% url 'reserv_service:index' %}">Вернуться на главную страницу &raquo;</a>
+
+</section>
+
+{% endblock %}

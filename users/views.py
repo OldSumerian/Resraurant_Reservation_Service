@@ -1,6 +1,6 @@
 import secrets
 from django.core.mail import send_mail
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView
 from config.settings import EMAIL_HOST_USER
@@ -107,3 +107,6 @@ class ProfilePasswordRestoreView(CreateView):
                   recipient_list=[user.email])
 
         return redirect(self.success_url)
+
+def my_cabinet(request):
+    return render(request, 'users/my_cabinet.html')
