@@ -25,6 +25,10 @@ def feedback(request):
 def reservation_blank(request):
     return render(request,'reserv_service/reservation_blank.html')
 
+
+def our_service(request):
+    return render(request,'reserv_service/our_service.html')
+
 class TableListView(ListView):
     model = Table
     template_name = 'reserv_service/reservation_blank.html'

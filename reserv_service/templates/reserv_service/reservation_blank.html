@@ -9,7 +9,7 @@
     <p class="lead text-center">Здесь вы можете управлять бронированиями столиков, просматривать историю заказов.</p>
     <hr class="featurette-divider">
     <div class="row">
-        {% if user.is_authenticated and perms.reserv_service.manager or user.is_superuser %}
+        {% if user.is_authenticated or user.is_superuser %}
         {% for obj in object_list %}
         <div class="col-3">
 
@@ -28,7 +28,7 @@
                     <h6 class="my-0 font-weight-italic">{{ time }}</h6>
                 </div>
                 {% endfor %}
-                <a class='btn btn-secondary' href="{% url 'reserv_service:order_create' obj.pk %}">Забронировать</a>
+                <a class='btn btn-secondary border-warning' href="{% url 'reserv_service:order_create' obj.pk %}">Забронировать</a>
 
 
             </div>
@@ -44,7 +44,7 @@
     {% if page_obj.paginator.num_pages > 1 %}
     <div id="pages" align="center" class="mb-4 mt-3">
         {% if page_obj.has_previous %}
-        <a class='btn btn-secondary' href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+        <a class='btn btn-secondary border-warning' href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
         {% endif %}
 
         <span class="current">
@@ -52,11 +52,13 @@
             </span>
 
         {% if page_obj.has_next %}
-        <a class='btn btn-secondary' href="?page={{ page_obj.next_page_number }}">Следующая</a>
+        <a class='btn btn-secondary border-warning' href="?page={{ page_obj.next_page_number }}">Следующая</a>
         {% endif %}
     </div>
     {% endif %}
 
+    <hr class="featurette-divider">
+    <a class="btn btn-secondary offset-md-5 border-warning" href="{% url 'reserv_service:index' %}">Вернуться на главную страницу</a>
     <hr class="featurette-divider">
 
     {% endblock%}
