@@ -53,6 +53,7 @@ class OrderCreateView(CreateView):
         times_table = used_table.times.all()
         used_table.times.set(times_table.difference(times_used))
         used_table.save()
+        order.table = used_table
         order.save()
         return super().form_valid(form)
 
@@ -64,7 +65,7 @@ class OrderDeleteView(DeleteView):
 class OrderUpdateView(UpdateView):
     model = Order
     fields = ['user', 'table', 'order_time']
-    success_url = reverse_lazy('reserv_service:order_list') ####
+    success_url = reverse_lazy('reserv_service:order_detail') ####
 
 
 class OrderListView(ListView):

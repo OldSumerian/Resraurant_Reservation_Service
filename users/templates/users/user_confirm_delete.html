@@ -7,14 +7,14 @@
         ALWAYS WELCOME
     </div>
     <div class="card-body">
-        <h5 class="card-title">Вы уверены, что хотите удалить товар?</h5>
+        <h5 class="card-title">Вы уверены, что хотите удалить пользователя?</h5>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Удалить</button>
+            <button type="submit" class="btn btn-danger">Удалить</button>
         </form>
     </div>
-    <div class="card-footer text-body-secondary">
+    <div class="card-footer text-body-secondary border-warning">
         <a href="{% url 'reserv_service:index' %}">Вернуться на главную страницу</a>
     </div>
 </div>

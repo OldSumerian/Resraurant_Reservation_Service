@@ -55,6 +55,12 @@
                         <a class="nav-link active text-warning" aria-current="page"
                            href="{% url 'reserv_service:about_us' %}">О нас</a>
                     </li>
+                    {% if user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link active text-warning" aria-current="page"
+                           href="{% url 'users:admin' %}">Администратор</a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2 border-warning" type="search" placeholder="Введите запрос"

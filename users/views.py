@@ -2,8 +2,9 @@ import secrets
 from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView
 from config.settings import EMAIL_HOST_USER
+from reserv_service.models import Order
 from users.forms import UserRegisterForm, UserProfileForm, UserLoginForm, ProfilePasswordRestoreForm
 from users.models import User
 
@@ -108,5 +109,31 @@ class ProfilePasswordRestoreView(CreateView):
 
         return redirect(self.success_url)
 
+
+class DeleteUser(DeleteView):
+    model = User
+    success_url = reverse_lazy('reserv_service:index')
+
 def my_cabinet(request):
-    return render(request, 'users/my_cabinet.html')
+    if request.user.is_superuser:
+        context = {'page_obj': Order.objects.all()}
+    else:
+        context = {'page_obj':Order.objects.filter(user=request.user)}
+    return render(request, 'users/my_cabinet.html', context=context)
+
+
+class AdminView(TemplateView):
+    template_name = 'users/admin.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['users_list'] = User.objects.exclude(pk=self.request.user.pk)
+        return context
+
+def deactivate_view(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    user.is_active = False
+    user.save()
+    return redirect(reverse('users:admin'))
+
+

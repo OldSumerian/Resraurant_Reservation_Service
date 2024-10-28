@@ -19,15 +19,4 @@ urlpatterns = [
     path('order/detail/<int:pk>', OrderDetailView.as_view(), name='order_detail'),
     path('order/delete/<int:pk>', OrderDeleteView.as_view(), name='order_delete'),
 
-
-    # path("reservations/", ReservationListView.as_view(), name="reservation_list"),
-    # path("reservations/new/", ReservationCreateView.as_view(), name="reservation_create"),
-    # path("reservations/<int:pk>/update/", ReservationUpdateView.as_view(), name="reservation_update"),
-    # path("reservations/<int:pk>/delete/", ReservationDeleteView.as_view(), name="reservation_delete"),
-    # path("", LoginView.as_view(template_name='users/login.html'), name="login"),
-    # path("logout/", LogoutView.as_view(), name="logout"),
-    # path("registration/", RegisterView.as_view(), name="registration"),
-    # path("profile/", ProfileView.as_view(), name="profile"),
-    # path('confirm/<str:code>/', confirm_user, name="confirm"),
-    # path('restore_password/', ProfilePasswordRestoreView.as_view(), name="restore_password"),
 ]
