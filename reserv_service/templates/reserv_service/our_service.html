@@ -1,0 +1,36 @@
+{% extends 'reserv_service/base.html'%}
+
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette text-center">
+        <div class="col-md-12">
+            <h2 class="featurette-heading fw-normal lh-1">Перечень наших услуг. <br> <span class="text-body-secondary">Вы можете получить у нас следующие услуги:</span>
+            </h2>
+            <p class="lead"></p>
+            <ul>
+                <li>Заказать столик удобным Вам способом (лично, онлайн, по телефону и пр.)</li>
+                <li>Забронировать столик на удобное Вам время и дату</li>
+                <li>Получить скидки и бонусы для постоянных клиентов</li>
+                <li>Заказать доставку готовых блюд</li>
+                <li>Корпоративным клиентам оказываются услуги по организации питания сотрудников</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+    <div class="col featurette offset-md-5">
+
+    <a class="btn btn-warning" href="{% url 'reserv_service:feedback' %}">Связаться с нами по email &raquo;</a>
+    </div>
+    <hr class="featurette-divider">
+
+    <a class="btn btn-secondary" href="{% url 'reserv_service:index' %}">Вернуться на главную &raquo;</a>
+    <hr class="featurette-divider">
+
+</div>
+{% endblock%}

@@ -5,47 +5,66 @@
         <div class="container-fluid">
             <img src="{% static 'images/logo.jpg' %}" class="bd-placeholder-img rounded-circle" width="80" height="80"
                  alt="photo">
-            <a class="navbar-brand border rounded border-2 border-warning bg-dark text-warning" href="#">Ресторан "ALWAYS WELCOME"</a>
+            <a class="navbar-brand border rounded border-2 border-warning bg-dark text-warning" href="#">Ресторан
+                "ALWAYS WELCOME"</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse" >
+            <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
 
                     <li class="nav-item">
-                        <a class="nav-link active text-warning" aria-current="page" href="{% url 'reserv_service:index' %}">Главная</a>
+                        <a class="nav-link active text-warning" aria-current="page"
+                           href="{% url 'reserv_service:index' %}">Главная</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link active text-warning" aria-current="page" href="{% url 'users:my_cabinet' %}">Личный кабинет</a>
+                        <a class="nav-link active text-warning" aria-current="page" href="{% url 'users:my_cabinet' %}">Личный
+                            кабинет</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-warning" aria-current="page" href="{% url 'reserv_service:reservation_blank' %}">Бронирование столика</a>
+                        <a class="nav-link active text-warning" aria-current="page"
+                           href="{% url 'reserv_service:reservation_blank' %}">Бронирование столика</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-warning" aria-current="page" href="{% url 'users:logout' %}">Выйти</a>
+                        <form action="{% url 'users:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button class="nav-link active text-warning" type="submit">Выйти</button>
+                        </form>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-warning" aria-current="page" href="{% url 'reserv_service:feedback' %}">Обратная связь</a>
+                        <a class="nav-link active text-warning" aria-current="page"
+                           href="{% url 'reserv_service:feedback' %}">Обратная связь</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link active text-warning" aria-current="page" href="{% url 'users:registration' %}">Зарегистрироваться</a>
+                        <a class="nav-link active text-warning" aria-current="page"
+                           href="{% url 'users:registration' %}">Зарегистрироваться</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-warning" aria-current="page" href="{% url 'users:login' %}">Войти</a>
+                        <a class="nav-link active text-warning" aria-current="page"
+                           href="{% url 'users:login' %}">Войти</a>
                     </li>
                     {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link active text-warning" aria-current="page" href="{% url 'reserv_service:contacts' %}">Наши контакты</a>
+                        <a class="nav-link active text-warning" aria-current="page"
+                           href="{% url 'reserv_service:contacts' %}">Наши контакты</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-warning" aria-current="page" href="{% url 'reserv_service:about_us' %}">О нас</a>
+                        <a class="nav-link active text-warning" aria-current="page"
+                           href="{% url 'reserv_service:about_us' %}">О нас</a>
                     </li>
+                    {% if user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link active text-warning" aria-current="page"
+                           href="{% url 'users:admin' %}">Администратор</a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Введите запрос" aria-label="Search">
+                    <input class="form-control me-2 border-warning" type="search" placeholder="Введите запрос"
+                           aria-label="Search">
                     <button class="btn btn-outline-warning" type="submit">Поиск</button>
                 </form>
             </div>

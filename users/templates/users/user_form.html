@@ -18,10 +18,11 @@
                         Подтвердить изменения
                         {% endif %}
                     </button>
-
+                    <a class="btn btn-danger" href="{% url 'users:delete_user' object.pk %}">Удалить пользователя</a>
+                    <a class="btn btn-secondary border-warning mt-2" href="{% url 'users:my_cabinet' %}">Вернуться в личный кабинет &raquo;</a>
                 </div>
-                <div class="card-footer text-body-secondary">
-                    <a class="btn btn-secondary" href="{% url 'reserv_service:index' %}">Вернуться на главную страницу &raquo;</a>
+                <div class="card-footer text-body-secondary mt-2">
+                    <a class="btn btn-secondary border-warning" href="{% url 'reserv_service:index' %}">Вернуться на главную страницу &raquo;</a>
                 </div>
             </div>
         </div>

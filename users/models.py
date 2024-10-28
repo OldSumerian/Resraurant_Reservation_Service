@@ -27,11 +27,11 @@ class User(AbstractUser):
         help_text='Укажите телефон'
     )
 
-    country = models.CharField(
+    address = models.CharField(
         max_length=50,
-        verbose_name='страна',
+        verbose_name='адрес',
         **NULLABLE,
-        help_text='Укажите страну'
+        help_text='Укажите адрес'
     )
 
     verification_code = models.CharField(

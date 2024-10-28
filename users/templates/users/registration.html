@@ -1,7 +1,7 @@
 {% extends 'reserv_service/base.html' %}
 
 {% block content %}
-<div class="container">
+<div class="container mt-5">
     <form class="row" method="post" enctype="multipart/form-data">
         <div class="col-12">
             <div class="card text-center">
@@ -13,7 +13,7 @@
 
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-warning">
                         {% if object %}
                         Выйти
                         {% else %}
@@ -23,7 +23,7 @@
 
                 </div>
                 <div class="card-footer text-body-secondary">
-                    <a href="{% url 'reserv_service:index' %}">Вернуться на главную страницу</a>
+                    <a class='btn btn-secondary border-warning' href="{% url 'reserv_service:index' %}">Вернуться на главную страницу</a>
                 </div>
             </div>
         </div>
