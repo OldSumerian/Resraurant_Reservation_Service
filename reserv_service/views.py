@@ -38,7 +38,7 @@ class TableListView(ListView):
 class OrderCreateView(CreateView):
     model = Order
     form_class = OrderForm
-    success_url = reverse_lazy('reserv_service:reservation_blank')
+    success_url = reverse_lazy('users:my_cabinet')
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -59,7 +59,7 @@ class OrderCreateView(CreateView):
 
 class OrderDeleteView(DeleteView):
     model = Order
-    success_url = reverse_lazy('reserv_service:order_list') ####
+    success_url = reverse_lazy('users:my_cabinet') ####
 
 
 class OrderUpdateView(UpdateView):

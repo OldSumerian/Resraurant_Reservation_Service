@@ -11,7 +11,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG', False) == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
@@ -60,11 +60,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.getenv('POSTGRES_DB'),
-        "USER": os.getenv('POSTGRES_USER'),
-        "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
-        "HOST": os.getenv('POSTGRES_HOST'),
-        "PORT": os.getenv('POSTGRES_PORT'),
+        "NAME": os.getenv('NAME'),
+        "USER": os.getenv('USER_DB'),
+        "PASSWORD": os.getenv('PASSWORD'),
+        "HOST": os.getenv('HOST'),
+        "PORT": os.getenv('PORT'),
     }
 }
 
@@ -125,3 +125,14 @@ SERVER_EMAIL = EMAIL_HOST_USER
 EMAIL_ADMIN = EMAIL_HOST_USER
 
 NULLABLE = {'blank': True, 'null': True}
+
+
+CACHE_ENABLED = True
+
+if CACHE_ENABLED:
+    CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": os.getenv('LOCATION'),
+        }
+    }
