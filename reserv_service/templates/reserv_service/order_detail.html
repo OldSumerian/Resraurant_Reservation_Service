@@ -1,27 +1,35 @@
 {% extends 'reserv_service/base.html' %}
 {% block content %}
+
+<br>
+<br>
+<br>
+
+{% if user.is_authenticated or user.is_superuser %}
 <div class="row text-center">
     <div class="col-12">
         <div class="card mb-4 box-shadow">
             <div class="card-header">
-                <h4 class="my-0 font-weight-normal">{{ object.subject }}</h4>
+                <h4 class="my-0 font-weight-normal">{{ object.user }}</h4>
             </div>
             <div class="card-body">
-                <p class="mt-3 mb-4 text-start m-3">{{ object.body }}</p>
-                {% if user.is_authenticated and user == object.owner or user.is_superuser %}
+                <p class="mt-3 mb-4 text-start m-3">Вы забронировали {{ object.table }}</p>
+                {% for time in object.order_time.all %}
+                <p class="mt-3 mb-4 text-start m-3">Время бронирования {{ time }}</p>
+                {% endfor %}
                 <div class="btn-group">
                     <a type="button" class="btn btn-secondary border-warning"
                        href="{% url 'reserv_service:order_update' order.pk %}">
-                        Редактировать
+                        Изменить
                     </a>
                     <a type="button" class="btn btn-danger"
                        href="{% url 'reserv_service:order_delete' order.pk %}">
-                        Удалить
+                        Отменить
                     </a>
                 </div>
                 {% endif %}
                 <div class="card-footer text-body-secondary mt-5">
-                    <a href="{% url 'reserv_service:order_list' %}">Вернуться к списку бронирований</a>
+                    <a href="{% url 'users:my_cabinet' %}">Вернуться в личный кабинет</a>
                 </div>
             </div>
         </div>

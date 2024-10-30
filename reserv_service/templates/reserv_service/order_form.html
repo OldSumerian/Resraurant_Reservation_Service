@@ -1,37 +1,43 @@
 {% extends 'reserv_service/base.html'%}
 
 {% block content %}
-<div  class="container mt-5" >
+<div class="container mt-5">
     <h1 class="display-4 text-center">Бронирование столика</h1>
     <p class="lead text-center">Здесь вы можете забронировать данный столик (в форме можно выбрать любое
         доступное время или доступный период).</p>
     <hr class="featurette-divider">
 
-<div class="row text-start text-center">
-    <div class="col-12">
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                {% if object %}
-                <h4 class="my-0 font-weight-normal">Обновить бронирование</h4>
-                {% else %}
-                <h4 class="my-0 font-weight-normal">Добавить новое бронирование</h4>
-                {% endif %}
+    <div class="row text-start text-center">
+        <div class="col-12">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    {% if object %}
+                    <h4 class="my-0 font-weight-normal">Обновить бронирование</h4>
+                    {% else %}
+                    <h4 class="my-0 font-weight-normal">Добавить новое бронирование</h4>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <form method="post" action="" class="form-floating" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-warning">
+                            {% if object %}
+                            Обновить
+                            {% else %}
+                            Добавить
+                            {% endif %}
+                        </button>
+
+                    </form>
+
+                </div>
+                <div class="card-footer mt-5">
+                    <a class="btn border-warning" href="{% url 'reserv_service:order_list' %}">Вернуться к списку бронирований</a>
+                </div>
             </div>
-            <div class="card-body">
-                <form method="post" action="" class="form-floating" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-outline-warning">
-                        {% if object %}
-                        Обновить
-                        {% else %}
-                        Добавить
-                        {% endif %}
-                    </button>
-                </form>
-            </div>
+
         </div>
     </div>
-</div>
 </div>
 {% endblock%}
