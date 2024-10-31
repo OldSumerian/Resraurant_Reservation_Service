@@ -35,6 +35,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, verbose_name='заказчик', **NULLABLE) # Чей заказ
     table = models.ForeignKey(Table, on_delete=models.SET_NULL, verbose_name='столик', **NULLABLE) # К какому столику заказывается
     order_time = models.ManyToManyField(TimeSection, verbose_name='время') # В какое время заказывается
+    order_confirm = models.BooleanField(default=False, verbose_name='Поле подтверждения бронирования')
 
     def __str__(self):
         return f'Заказ {self.id}'

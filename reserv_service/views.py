@@ -59,13 +59,20 @@ class OrderCreateView(CreateView):
 
 class OrderDeleteView(DeleteView):
     model = Order
-    success_url = reverse_lazy('users:my_cabinet') ####
+    success_url = reverse_lazy('users:my_cabinet')
+
+    def form_valid(self, form):
+        order = self.get_object()
+        times_used = order.order_time.all()
+        used_table = order.table
+        used_table.times.add(*times_used)
+        return super().form_valid(form)
 
 
 class OrderUpdateView(UpdateView):
     model = Order
-    fields = ['user', 'table', 'order_time']
-    success_url = reverse_lazy('reserv_service:order_detail') ####
+    fields = ['order_time', 'order_confirm']
+    success_url = reverse_lazy('users:my_cabinet')
 
 
 class OrderListView(ListView):
